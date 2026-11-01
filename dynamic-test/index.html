@@ -5,7 +5,7 @@
 <h1>Тест динамического JSON</h1>
 <ul id="schedule"><li>Загрузка…</li></ul>
 <script>
-fetch('./schedule.json')
+fetch('https://cdn.jsdelivr.net/gh/kotik7827-coder/fenix-extension-e2e-20261101@main/dynamic-test/schedule.json')
   .then(response => response.json())
   .then(data => {
     document.getElementById('schedule').innerHTML = data.items
