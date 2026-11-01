@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fenix JSON Test</title></head>
+<body>
+<h1>Тест динамического JSON</h1>
+<ul id="schedule"><li>Загрузка…</li></ul>
+<script>
+fetch('./schedule.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('schedule').innerHTML = data.items
+      .map(item => `<li>${item.day} — ${item.time}: ${item.lesson}</li>`).join('');
+  })
+  .catch(error => { document.getElementById('schedule').textContent = error.message; });
+</script>
+</body>
+</html>
